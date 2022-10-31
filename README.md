@@ -1,1 +1,2 @@
-# AvrahamRaviv.github.io-DSTEP
+# DSTEP-SIRC.github.io
+Official implementation of DSTEP

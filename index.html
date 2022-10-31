@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="D-STEP: Dynamic Spatio-Temporal Pruning.">
+  <meta name="keywords" content="DSTEP, Pruning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D-STEP: Dynamic Spatio-Temporal Pruning</title>
+
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-52FV5TX');</script>
+<!-- End Google Tag Manager -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><b>D-STEP: Dynamic Spatio-Temporal Pruning</b></h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/avraham-raviv-47b3b5158/">Avraham Raviv</a>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/yonatan-dinai-77295026/">Yonatan Dinai</a>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/igor-drozdov-895581176/">Igor Drozdov</a>,</span>
+            <span class="author-block">
+              <a href="https://www.google.co.il/">Niv Zehngut</a>
+            </span>
+                and
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/ishay-goldin-91624117/">Ishay Goldin</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Samsung Israel R&D Center</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/17jwDwKLEn_QEM5FMkD-VgFNzwH8kzO3Q/view"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span><b>Video</b></span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/DSTEP-SIRC/DSTEP"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Hebrew. -->
+<!--              <span class="link-block"> -->
+<!--                <a href="https://machinelearning.co.il/13149/dstep/#more-13149" -->
+<!--                   class="external-link button is-normal is-rounded is-dark"> -->
+<!--                  <span class="icon"> -->
+<!--                      <i class="fas fa-file-pdf"></i> -->
+<!--                  </span> -->
+<!--                  <span>Hebrew Review</span> -->
+<!--                  </a> -->
+<!--              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><b>Abstract</b></h2>
+        <div class="content has-text-justified">
+          <p>
+            Video processing requires analysis of spatial features that are changing over time.
+            By combining spatial and temporal modelling together, 
+            a neural network can gain a better understanding of the scene with no increase in computation.
+          </p>
+          <p>
+          Spatio-temporal modeling
+          can also be used to identify redundant and sparse information in both the spatial and
+
+          the temporal domains. In this work we present <em><b>Dynamic Spatio-Temporal Pruning, D-
+          STEP</b></em>, a new, simple, yet efficient method for learning the evolution of spatial mapping
+
+          between frames. More specifically, we used a cascade of lightweight policy networks to
+          dynamically filter out, per input, regions and channels that do not provide information
+          while also sharing information across time. Guided by the policy networks, the model is
+          able to focus on relevant data and filters, avoiding unnecessary computations.
+          </p>
+          <p>
+          Extensive
+            evaluations on Something-Something-V2, Jester and Mini-Kinetics action recognition
+
+            datasets demonstrate that the proposed method shows a significantly improved accuracy-
+            compute trade-off over the current state-of-the-art methods.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+  
+<section class="section">
+  <div class="container is-max-desktop">
+     
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><b>Method</b></h2>
+        <div class="publication-video">
+          <img src="static/images/method.png" alt="method" width="1080"/>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+      
+    <!-- Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><b>Results</b></h2>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-3"><i>Accuracy vs. FLOPS</i></h4>
+          <div class="publication-video">
+          <img src="static/images/results.png" alt="results" width="1720"/>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-3"><i>Ablation Study</i></h4>
+          <div class="publication-video">
+          <img src="static/images/results_1.png" alt="results_1"/>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+         <h3 class="title is-3"><i>Qualitive Results</i></h4>
+          <div class="publication-video">
+          <img src="static/images/spatial_sparsity.png" alt="results2"/>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+    
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Raviv, Avraham and Dinai, Yonatan and Drozdov, Igor and Zenghut, Niv and Goldin, Ishay},
+  title     = {D-STEP: Dynamic Spatio-Temporal Pruning},
+  journal   = {BMVC},
+  year      = {2022},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+ <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
